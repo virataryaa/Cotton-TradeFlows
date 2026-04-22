@@ -72,7 +72,7 @@ NUM_TO_MONTH = {i + 1: m for i, m in enumerate(MONTH_ORDER)}
 # 1 SB Lot = 50 long tons; 1 long ton = 1.016047 MT → 50 long tons = 50.8023 MT
 _SB_LOT_MT = 50.8023
 
-_DATA = Path(__file__).parents[1] / "Database"
+_DATA = Path(__file__).resolve().parent.parent / "Database"
 
 FLOW_PATHS = {
     "Cotton Exports": str(_DATA / "tdm_cotton_exports.parquet"),
@@ -1215,7 +1215,6 @@ with tab4:
         "</div>",
         unsafe_allow_html=True,
     )
-    st.stop()
 
     # ── Load both parquets ────────────────────────────────────────────────────
     try:
