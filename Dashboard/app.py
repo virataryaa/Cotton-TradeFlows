@@ -232,7 +232,7 @@ with tab1:
             )
             sel_regions = all_regions if sel_partner_region == "All" else [sel_partner_region]
             with fc4:
-                sel_partners = st.multiselect("Partner", partners_in_scope, default=partners_in_scope)
+                sel_partners = st.multiselect("Partner", partners_in_scope, default=[])
 
         mask = (
             df["REPORTER"].isin(sel_reporters or reporters_in_scope)
@@ -759,7 +759,7 @@ with tab1:
             else sorted(_dest_df_rep[_dest_df_rep["REGION"] == dest_partner_region]["PARTNER"].dropna().unique())
         )
         with dest_fc5:
-            dest_partners = st.multiselect("Partners", _dest_partners_scope, default=_dest_partners_scope, key=f"{_fk}_dest_partners")
+            dest_partners = st.multiselect("Partners", _dest_partners_scope, default=[], key=f"{_fk}_dest_partners")
 
         _dest_all_cy = sorted(_dest_df_rep["CROP_YEAR"].dropna().unique())
         if len(_dest_all_cy) >= 2:
